@@ -133,7 +133,7 @@ angular.module('dropbox', [])
             url: url,
             params: params,
             headers: {
-              'responseType': 'blob'
+              'Content-Type': 'blob'
             }
           });
         }
@@ -278,7 +278,7 @@ angular.module('dropbox', [])
 
 
           readFile: function (path, params) {
-            return GETCUSTOM(urls.getFile + path, params);
+            return GET(urls.getFile + path, params);
           },
 
 
