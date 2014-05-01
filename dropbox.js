@@ -127,18 +127,6 @@ angular.module('dropbox', [])
           });
         }
 
-        function GETCUSTOM(url, params) {
-          return request({
-            method: 'GET',
-            url: url,
-            params: params,
-            headers: {
-              'Content-Type': 'blob'
-            }
-          });
-        }
-
-
         /**
          * HTTP POST Helper
          */
