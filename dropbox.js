@@ -127,6 +127,17 @@ angular.module('dropbox', [])
           });
         }
 
+        function GETCUSTOM(url, params) {
+          return request({
+            method: 'GET',
+            url: url,
+            params: params,
+            headers: {
+              'responseType': 'blob'
+            }
+          });
+        }
+
 
         /**
          * HTTP POST Helper
@@ -267,7 +278,7 @@ angular.module('dropbox', [])
 
 
           readFile: function (path, params) {
-            return GET(urls.getFile + path, params);
+            return GETCUSTOM(urls.getFile + path, params);
           },
 
 
@@ -328,7 +339,7 @@ angular.module('dropbox', [])
           thumbnailUrl: function (path, params) {
             return urls.thumbnails
                  + path
-                 + '?format=jpeg&size=' 
+                 + '?format=jpeg&size='
                  + params.size
                  + '&access_token='
                  + oauth.access_token;
