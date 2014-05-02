@@ -127,6 +127,8 @@ angular.module('dropbox', [])
           });
         }
 
+
+
         /**
          * HTTP POST Helper
          */
@@ -266,9 +268,21 @@ angular.module('dropbox', [])
 
 
           readFile: function (path, params) {
-            return GET(urls.getFile + path, params);
+            return request({
+              method: 'GET',
+              url: urls.getFile + path,
+              params: params
+            });
           },
 
+          readImage: function (path, params) {
+            return request({
+              method: 'GET',
+              url: urls.getFile + path,
+              responseType: 'blob',
+              params: params
+            });
+          },
 
           writeFile: function (path, content, params) {
             return request({
