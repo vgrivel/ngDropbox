@@ -36,7 +36,7 @@ angular.module('dropbox', [])
 
         var authServer = 'https://www.dropbox.com'
           , apiServer  = 'https://api.dropbox.com'
-          , fileServer = 'https://api-content.dropbox.com';
+          , fileServer = 'https://dl.dropboxusercontent.com';
 
 
         /**
@@ -53,6 +53,7 @@ angular.module('dropbox', [])
           accountInfo:         apiServer  + '/1/account/info',
 
           // Files and metadata.
+          getNote:             fileServer + '/1/files/auto/',
           getFile:             fileServer + '/1/files/auto/',
           postFile:            fileServer + '/1/files/auto/',
           putFile:             fileServer + '/1/files_put/auto/',
@@ -270,7 +271,7 @@ angular.module('dropbox', [])
           readFile: function (path, params) {
             return request({
               method: 'GET',
-              url: urls.getFile + path,
+              url: urls.getNote + path,
               params: params
             });
           },
@@ -450,4 +451,3 @@ angular.module('dropbox', [])
 
 
   })
-
