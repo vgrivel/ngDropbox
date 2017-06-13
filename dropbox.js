@@ -296,6 +296,14 @@ angular.module('dropbox', [])
             });
           },
 
+          shares: function (path, params) {
+            return request({
+              method: 'POST',
+              url: urls.shares + path,
+              headers: {'Content-Type': undefined},
+              params: params
+            });
+          },
 
           stat: function (path, params) {
             return GET(urls.metadata + path, params);
